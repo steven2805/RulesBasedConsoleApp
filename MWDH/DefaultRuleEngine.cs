@@ -11,6 +11,8 @@ namespace MWDH
         {
             rules.Add(new RuleHandlePressingL());
             rules.Add(new RuleHandlePressingA());
+            rules.Add(new RuleHandlePressingInsert());
+            rules.Add(new RuleHandlePressingDelete());
         }
 
         public void CheckRules(string userInput, Page page)

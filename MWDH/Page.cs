@@ -37,6 +37,13 @@ namespace MWDH
                 this.nextFreeLine = (int)insertAtLine + 1;
             }
 
+        }
+        public void DeleteLine(int linenumber)
+        {
+            if(linenumber <= Lines.Count && linenumber >= 0)
+            {
+                Lines.RemoveAt(linenumber);
+            }
 
         }
     }

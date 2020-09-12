@@ -16,10 +16,28 @@ namespace MWDH
             this.nextFreeLine = 0;
         }
 
-        public void addLine(string lineToAdd)
+        public void addLine(string stringToAdd, int? insertAtLine = null)
         {
-            Lines.Add(lineToAdd);
-            nextFreeLine++;
+            if(insertAtLine == null)
+            {
+                Lines.Add(stringToAdd);
+                nextFreeLine++;
+            }
+            else
+            {
+                //Stop out of bounds from happening
+
+                while (nextFreeLine < insertAtLine)
+                {
+                    Lines.Insert(nextFreeLine, "");
+                    nextFreeLine++;
+                }
+
+                Lines.Insert((int)insertAtLine, stringToAdd);
+                this.nextFreeLine = (int)insertAtLine + 1;
+            }
+
+
         }
     }
 }

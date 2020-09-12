@@ -44,6 +44,25 @@ namespace MWDH
             {
                 Lines.RemoveAt(linenumber);
             }
+            else
+            {
+                //Error handling
+            }
+
+        }
+
+        public void swapLines(int firstLine,int secondLine)
+        {
+            if(!(firstLine > Lines.Count || secondLine > Lines.Count))
+            {
+                string _tempString = Lines[firstLine].ToString();
+                Lines[firstLine] = Lines[secondLine];
+                Lines[secondLine] = _tempString;
+            }
+            else
+            {
+                //Error handling in here
+            }
 
         }
     }

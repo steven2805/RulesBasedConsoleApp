@@ -10,6 +10,7 @@ namespace MWDH
         public DefaultRuleEngine()
         {
             rules.Add(new RuleHandlePressingL());
+            rules.Add(new RuleHandlePressingA());
         }
 
         public void CheckRules(string userInput, Page page)

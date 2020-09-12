@@ -13,6 +13,8 @@ namespace MWDH
             rules.Add(new RuleHandlePressingA());
             rules.Add(new RuleHandlePressingInsert());
             rules.Add(new RuleHandlePressingDelete());
+            rules.Add(new RuleHandlePressingSwap());
+            rules.Add(new RuleHandlePressingEdit());
         }
 
         public void CheckRules(string userInput, Page page)

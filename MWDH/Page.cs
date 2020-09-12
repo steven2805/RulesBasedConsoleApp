@@ -65,5 +65,18 @@ namespace MWDH
             }
 
         }
+
+        internal void editLine(string newString, int lineNumberToChange)
+        {
+            if(lineNumberToChange <= Lines.Count && lineNumberToChange >= 0)
+            {
+                Lines[lineNumberToChange] = newString;
+
+            }
+            else
+            {
+                //Error handling in here
+            }
+        }
     }
 }

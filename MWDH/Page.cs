@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 
 namespace MWDH
@@ -12,8 +10,8 @@ namespace MWDH
 
         public Page()
         {
-            this.Lines = new List<string>();
-            this.nextFreeLine = 0;
+            Lines = new List<string>();
+            nextFreeLine = 0;
         }
 
         public void addLine(string stringToAdd, int? insertAtLine = null)
@@ -26,15 +24,18 @@ namespace MWDH
             else
             {
                 //Stop out of bounds from happening
-
-                while (nextFreeLine < insertAtLine)
+                if (CheckValueisvalid((int)insertAtLine))
                 {
-                    Lines.Insert(nextFreeLine, "");
-                    nextFreeLine++;
-                }
+                    while (nextFreeLine < insertAtLine)
+                    {
+                        Lines.Insert(nextFreeLine, "");
+                        nextFreeLine++;
+                    }
 
-                Lines.Insert((int)insertAtLine, stringToAdd);
-                this.nextFreeLine = (int)insertAtLine + 1;
+                    Lines.Insert((int)insertAtLine, stringToAdd);
+                    this.nextFreeLine = (int)insertAtLine + 1;
+                }
+              // Error handling
             }
 
         }
@@ -77,6 +78,15 @@ namespace MWDH
             {
                 //Error handling in here
             }
+        }
+
+        private bool CheckValueisvalid(int value)
+        {
+            if (value >= 0 && value < int.MaxValue)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

@@ -6,7 +6,7 @@ namespace MWDH
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Make you selection: Example L");
             GetUserInput();
         }
 

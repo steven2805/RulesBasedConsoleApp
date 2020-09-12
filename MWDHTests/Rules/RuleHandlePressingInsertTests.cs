@@ -58,11 +58,22 @@ namespace MWDH.Tests
         [Test]
         public void CheckHighintSelection()
         {
-            String highIntSelection = "I 100 Testing this very high int";
+            string highIntSelection = "I 100 Testing this very high int";
             ruleUnderTest.CheckCondition(highIntSelection, page);
-            // Should be 100 count as we have to insert to empty lines to stop out of range
+            // Should be 100 count as we have to insert empty lines to stop out of range
             Assert.AreEqual(100, page.Lines.Count);
             Assert.AreEqual("Testing this very high int", page.Lines[99]);
+
+        }
+
+        [Test]
+        public void CheckNegativeValueHandling()
+        {
+            string negativeValueString = "I -5 Testing negative value handling";
+            ruleUnderTest.CheckCondition(negativeValueString, page);
+            // Should be 0 as you can not add a negative value to a list
+            Assert.AreEqual(0, page.Lines.Count);
+            
 
         }
 

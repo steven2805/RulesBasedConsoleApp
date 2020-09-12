@@ -16,10 +16,7 @@ namespace MWDH.Tests
         {
             page = new Page();
             ruleUnderTest = new RuleHandlePressingL();
-
         }
-
-
         [Test]
         public void CheckConditionIsTrueTest()
         {
@@ -28,6 +25,7 @@ namespace MWDH.Tests
             ruleUnderTest.CheckCondition(inputText, page);
             Assert.AreEqual(4, page.Lines.Count);
         }
+
         [Test]
         public void CheckConditionIsWrongLetterTest()
         {

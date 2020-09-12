@@ -48,5 +48,35 @@ namespace MWDH.Tests
             ruleUnderTest.CheckCondition(outOfBounds, page);
             Assert.AreEqual(1, page.Lines.Count);
         }
+        [Test]
+        public void CheckConditionOutOfBoundsLower()
+        {
+            page.addLine("This is the line to be not be deleted");
+            page.addLine("This is the line to be not be deleted");
+            page.addLine("This is the line to be not be deleted");
+            page.addLine("This is the line to be not be deleted");
+
+            string outOfBounds = "d 0";
+            ruleUnderTest.CheckCondition(outOfBounds, page);
+
+            Assert.AreEqual(4, page.Lines.Count);
+
+        }
+
+        [Test]
+        public void CheckDeletingSameLineTwice()
+        {
+            page.addLine("This is the line to be deleted");
+            page.addLine("This is the line to be deleted");
+            page.addLine("This is the line to be not be deleted");
+            page.addLine("This is the line to be not be deleted");
+
+            string outOfBounds = "d 1";
+            ruleUnderTest.CheckCondition(outOfBounds, page);         
+            ruleUnderTest.CheckCondition(outOfBounds, page);
+
+            Assert.AreEqual(2, page.Lines.Count);
+
+        }
     }
 }
